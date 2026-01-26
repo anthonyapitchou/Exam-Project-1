@@ -1,0 +1,136 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-x: hidden;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    ;
+}
+
+.header {
+    width: 100%;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
+}
+
+.header-container {
+    width: 90%;
+    margin: auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-family: Arial, sans-serif;
+    font-size: 40px;
+    font-weight: 800;
+    color: #000;
+}
+
+.search-bar input {
+    width: 260px;
+    padding: 8px 14px;
+    border: 1px solid #aaa;
+    border-radius: 20px;
+    outline: none;
+}
+
+.nav {
+    display: flex;
+    gap: 20px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 14px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.nav a:hover {
+    opacity: 0.6;
+}
+
+.burger {
+    display: none;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: flex;
+        gap: 20px;
+        padding: 20px;
+    }
+
+    .burger {
+        display: flex;
+        flex-direction: column;
+        width: 25px;
+        height: 20px;
+        justify-content: space-between;
+        cursor: pointer;
+    }
+
+    .burger span {
+        height: 3px;
+        width: 100%;
+        background: black;
+        border-radius: 2px;
+    }
+
+    .logo h1 {
+        font-size: 28px;
+    }
+
+    .search-bar input {
+        width: 100%;
+        max-width: 95px;
+    }
+
+    .nav {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 80px;
+        right: 20px;
+
+        width: 420px;
+        height: 160px;
+
+        background: #f5f5f5;
+        border-radius: 12px;
+        padding: 20px;
+
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        z-index: 1000;
+    }
+
+    .nav.active {
+        display: flex;
+    }
+
+    .nav a {
+        font-size: 16px;
+        color: #000;
+        text-decoration: none;
+        margin-bottom: 10px;
+    }
+
+    .nav a:last-child {
+        margin-bottom: 0;
+    }
+
+    .logo h1 {
+        font-size: 24px;
+    }
+}

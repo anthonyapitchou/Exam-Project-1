@@ -3,6 +3,13 @@ export default function header() {
 <header class="header">
 <div class="header-container">
 
+
+<div class="burger" id="burger">
+  <span></span>
+  <span></span>
+  <span></span>
+</div>
+
 <div class="logo">
 <h1>StudioHybrid</h1>
 </div>
@@ -12,6 +19,8 @@ export default function header() {
     </div>
 
 <nav class="nav">
+
+
 
     <a href="about.index.html">About</a>
     <a href="contact.html">Contact</a>
