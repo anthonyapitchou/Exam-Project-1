@@ -6,10 +6,9 @@ export default function contact() {
 <div class="back-arrow">
     ←
   </div>
+
+
   <div class="login-container">
-
-
-
     <div class="left-container">
     <div class ="text-container">
       <h1>Contact Us      
