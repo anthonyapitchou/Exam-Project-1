@@ -3,6 +3,11 @@ export default function nike() {
 <main class="login-page">
 
 
+  <div class="login-header">
+<div class="back-arrow">
+    ←
+  </div>
+
 
   <div class="login-container">
 
@@ -32,7 +37,8 @@ export default function nike() {
         <p class="price">Price: 120 €</p>
       </div>
 
-      <a href="https://unsplash.com/photos/white-and-red-nike-athletic-shoe-J2-wAQDckus" class="source-button"> Click to see the shoes
+      <a href="https://unsplash.com/photos/white-and-red-nike-athletic-shoe-J2-wAQDckus"  target="_blank" class="source-button"> Click to see the shoes
+     
       </a>
 
     </div>
