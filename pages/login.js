@@ -1,23 +1,25 @@
 export default function login() {
   return /*HTML*/ `
-<main class="login-page">
+<main class="login">
 
   <div class="login-header">
 <div class="back-arrow">
     ←
   </div>
-  <div class="login-container">
 
 
+  <div class="login-one">
 
-    <div class="left-container">
+
+    <div class="left-login">
       <h1>
         Welcome Back 
         <img src="assets/icons/waving-hand.png" alt="hand">
       </h1>
 
       <!-- form -->
-      <form class="login-form">
+      <form id="login-form" class="login-form">
+
 
     
       <label for="email">Email</label>
@@ -32,8 +34,9 @@ export default function login() {
    
 
     <div class="or-separator">
-      <span class">OR</span>
+      <span>OR</span>
     </div>
+
 
     
       <button class="social-button-google">
@@ -47,7 +50,7 @@ Continue with Facebook</button>
       </form>
     </div>
 
-    <div class="right-container">
+    <div class="right-login">
       <img src="assets/images/headphone.jpg" alt="Headphone">
     </div>
 
@@ -59,3 +62,24 @@ Continue with Facebook</button>
     `;
 
 }
+
+
+
+export function initLoginForm() {
+
+  const form = document.querySelector("#login-form");
+  console.log("coucou :", form);
+
+  if (!form) return;
+
+
+}
+
+
+
+
+
+
+
+
+
