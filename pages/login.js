@@ -2,10 +2,6 @@ export default function login() {
   return /*HTML*/ `
 <main class="login">
 
-  <div class="login-header">
-<div class="back-arrow">
-    ←
-  </div>
 
 
   <div class="login-one">
@@ -63,16 +59,24 @@ Continue with Facebook</button>
 
 }
 
-
-
 export function initLoginForm() {
-
   const form = document.querySelector("#login-form");
-  console.log("coucou :", form);
-
   if (!form) return;
 
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
 
+    const email = form.querySelector("#email").value.trim();
+    const password = form.querySelector("#password").value.trim();
+
+    if (email === "" || password === "") {
+      alert("Please fill all fields");
+      return;
+    }
+
+
+    navigateTo("/home");
+  });
 }
 
 
