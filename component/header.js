@@ -1,4 +1,6 @@
 export default function header() {
+    const currentPath = window.location.pathname;
+
     return /*HTML*/ `
 <header class="header">
 <div class="header-container">
@@ -19,16 +21,15 @@ export default function header() {
     </div>
 
 <nav class="nav">
-
-
-
-    <a href="about.index.html">About</a>
-    <a href="contact.html">Contact</a>
-    <a href="login.html">Login</a>
-    <a href="Newlook.html">New Look</a>
+    <a href="#" onclick="window.navigateTo('/about')">About</a>
+    <a href="#"  class="nav-contact" onclick="window.navigateTo('/contact')" class="${currentPath === '/contact' ? 'active' : ''}">Contact</a>
+    <a href="#" onclick="window.navigateTo('/login')">Login</a>
+    <a href="#" onclick="window.navigateTo('/newlook')">New Look</a>
+</nav>
 </nav>
 </div>
 </header>
     `;
 
 }
+

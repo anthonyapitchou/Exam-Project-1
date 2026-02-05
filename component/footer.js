@@ -23,7 +23,7 @@ export default function footer() {
 <h3>Quick Links</h3>
 <ul>
     <li><a href="about.index.html">About</a></li>   
-    <li><a href="contact.html">Contact</a></li>
+    <li><a href="contact.html" class="active">Contact</a></li>
     <li><a href="login.html">Login</a></li>
     <li><a href="Newlook.html">New Look</a></li>
 </ul>

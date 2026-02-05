@@ -1,5 +1,5 @@
-import header from "../component/header.js";
-import footer from "../component/footer.js";
+// routes.js - Route definitions for Fashion Blog
+
 import about from "../pages/about.js";
 import contact from "../pages/contact.js";
 import ferragamo from "../pages/ferragamo.js";
@@ -10,24 +10,17 @@ import martens from "../pages/martens.js";
 import newlook from "../pages/newlook.js";
 import nike from "../pages/nike.js";
 
-
-
-
-
 const routes = [
-    { path: "/", view: home },
-    { path: "/about", view: about },
-    { path: "/login", view: login },
-    { path: "/contact", view: contact },
-    { path: "/ferragamo", view: ferragamo },
-    { path: "/home", view: home },
-    { path: "/lubutelvintage", view: lubutelvintage },
-    { path: "/martens", view: martens },
-    { path: "/newlook", view: newlook },
-    { path: "/nike", view: nike },
-    { path: "/header", view: header },
-    { path: "/footer", view: footer },
-
+    { path: "/", component: login },
+    { path: "/login", component: login },
+    { path: "/home", component: home },
+    { path: "/about", component: about },
+    { path: "/contact", component: contact },
+    { path: "/ferragamo", component: ferragamo },
+    { path: "/lubutelvintage", component: lubutelvintage },
+    { path: "/martens", component: martens },
+    { path: "/newlook", component: newlook },
+    { path: "/nike", component: nike },
 ];
 
 export default routes;

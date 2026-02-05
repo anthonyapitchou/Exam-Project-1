@@ -1,25 +1,23 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    overflow-x: hidden;
-
-}
-
 .login-page {
-    width: 90%;
+    width: 95%;
     min-height: 100vh;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #697565;
 }
 
-.back-arrow {
-    width: 36px;
-    height: 36px;
-    border: 2px solid #0088FF;
-    color: #0088FF;
+.login-contact {
+    background-color: #697565;
+}
+
+
+.back-arrow-contact {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #FDFBF9;
+    color: #FDFBF9;
     background: transparent;
     border-radius: 50%;
     display: flex;
@@ -27,26 +25,27 @@
     justify-content: center;
     font-size: 18px;
     cursor: pointer;
-    border: 2px #0088FF;
-    padding: 20px 80px;
+    padding: 20px 20px;
     margin-top: 40px;
+    overflow: hidden;
+    margin-left: 100px;
 
 }
 
-.login-container {
+.login-container-contact {
     display: flex;
-    width: 90%;
+    width: 85%;
     height: 1070px;
     margin: auto;
     justify-content: center;
     align-items: center;
     border-radius: 15px;
     overflow: hidden;
-    background-color: #ffffff;
+    background-color: #F2EFE9;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
     margin-top: 10px;
-    padding: 80px 120px;
+    padding: 40px 80px;
 }
 
 .left-container,
@@ -54,19 +53,17 @@
     width: 50%;
 }
 
-.left-container {
+.left-container-contact {
     width: 100%;
-    max-width: 816px;
     height: 100%;
     max-height: 1070px;
     padding: 60px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
 }
 
-.left-container h1 {
-    font-size: 36px;
+.left-container-contact h1 {
+    font-size: 46px;
     margin-bottom: 20px;
     color: #333333;
     display: flex;
@@ -74,20 +71,32 @@
     gap: 10px;
 }
 
-.left-container form {
+.left-container-contact p {
+    font-size: 22px;
+
+}
+
+.left-container-contact form {
     display: flex;
     flex-direction: column;
     gap: 10px;
 }
 
-.left-container input {
+.left-container-contact input {
     padding: 12px 16px;
     border: 1px solid #ccc;
     border-radius: 6px;
     font-size: 16px;
+    margin-bottom: 15px;
 }
 
-.left-container button {
+.left-container-contact input#message {
+    height: 180px;
+    width: 100%;
+    resize: none;
+}
+
+.left-container-contact button {
     padding: 12px 16px;
     border: none;
     border-radius: 6px;
@@ -105,13 +114,13 @@
 
 }
 
-.login-button {
-    background-color: #162D3A;
+.login-button-contact {
+    background-color: #592C22;
     color: #ffffff;
     transition: background-color 0.3s ease;
+    border-radius: 15px;
+    padding: 12px 16px;
 }
-
-
 
 
 
@@ -122,20 +131,44 @@
     gap: 16px;
 }
 
-.right-container {
+.right-container-contact {
     width: 100%;
     height: 100%;
     object-fit: cover;
     border-radius: 15px;
 }
 
-.right-container img {
+.right-container-contact img {
     width: 100%;
     max-width: 816px;
     height: 90%;
     max-height: 1070px;
     object-fit: cover;
     border-radius: 10px;
+}
+
+a.nav-contact {
+    font-size: 22px;
+    font-weight: bold;
+
+}
+
+
+/* Border radius sur la popup */
+.swal2-popup.contact-swal-popup {
+    border-radius: 15px !important;
+}
+
+/* Cacher l'icône complètement */
+.swal2-popup.contact-swal-popup .swal2-icon {
+    display: none !important;
+}
+
+/* Alternative: cacher tous les éléments visuels de l'icône */
+.contact-swal-popup .swal2-icon,
+.contact-swal-popup .swal2-success-ring,
+.contact-swal-popup .swal2-success-fix {
+    display: none !important;
 }
 
 @media (max-width: 768px) {
@@ -146,14 +179,14 @@
         gap: 10px;
     }
 
-    .back-arrow {
+    .back-arrow-contact {
         margin-top: 20px;
         padding: 0;
         width: 40px;
         height: 40px;
     }
 
-    .login-container {
+    .login-container-contact {
         flex-direction: column;
         width: 100%;
         height: auto;
@@ -161,33 +194,33 @@
         box-shadow: none;
     }
 
-    .right-container {
+    .right-container-contact {
         display: none;
         /* on cache l’image sur mobile */
     }
 
-    .left-container {
+    .left-container-contact {
         width: 100%;
         max-width: 100%;
         padding: 20px;
         height: auto;
     }
 
-    .left-container h1 {
+    .left-container-contact h1 {
         font-size: 26px;
         text-align: center;
         justify-content: center;
     }
 
-    .left-container form {
+    .left-container-contact form {
         gap: 16px;
     }
 
-    .left-container input {
+    .left-container-contact input {
         font-size: 14px;
     }
 
-    .left-container button {
+    .left-container-contact button {
         font-size: 14px;
         padding: 12px;
     }
