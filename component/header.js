@@ -20,13 +20,16 @@ export default function header() {
     <input type="text" id="searchInput" placeholder="Search products">
     </div>
 
+
+
 <nav class="nav">
-    <a href="#" onclick="window.navigateTo('/about')">About</a>
-    <a href="#"  class="nav-contact" onclick="window.navigateTo('/contact')" class="${currentPath === '/contact' ? 'active' : ''}">Contact</a>
-    <a href="#" onclick="window.navigateTo('/login')">Login</a>
-    <a href="#" onclick="window.navigateTo('/newlook')">New Look</a>
+    <a href="javascript:void(0)" class="nav-about ${currentPath === '/about' ? 'active' : ''}" onclick="window.navigateTo('/about')">About</a>
+    <a href="javascript:void(0)" class="nav-contact ${currentPath === '/contact' ? 'active' : ''}" onclick="window.navigateTo('/contact')">Contact</a>
+    <a href="javascript:void(0)" class="nav-newlook ${currentPath === '/newlook' ? 'active' : ''}" onclick="window.navigateTo('/newlook')">New Look</a>
+    <a href="javascript:void(0)" class="nav-login ${currentPath === '/login' ? 'active' : ''}" onclick="window.navigateTo('/login')">Login</a>
 </nav>
-</nav>
+
+
 </div>
 </header>
     `;

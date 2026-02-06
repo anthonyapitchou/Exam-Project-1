@@ -11,7 +11,7 @@ import newlook from "../pages/newlook.js";
 import nike from "../pages/nike.js";
 
 const routes = [
-    { path: "/", component: login },
+    { path: "/", component: home },
     { path: "/login", component: login },
     { path: "/home", component: home },
     { path: "/about", component: about },
