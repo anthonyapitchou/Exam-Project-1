@@ -113,6 +113,11 @@ export function goBack() {
     } else {
         router.navigate('/');
     }
+
+
+
+
+
 }
 
 // GLOBAL

@@ -1,6 +1,7 @@
 export default function ferragamo() {
-    return /*HTML*/ `
-<main class="login-page">
+  return /*HTML*/ `
+
+<section class="ferragamo-page">
 
 
   <div class="login-header">
@@ -44,8 +45,8 @@ export default function ferragamo() {
     </div>
 
   </div>
+</section>
 
-</main>
 
     `;
 }

@@ -1,6 +1,7 @@
 export default function login() {
   return /*HTML*/ `
-<main class="login">
+
+<section class="login-page">
   <div class="login-one">
     <div class="left-login">
       <h1>
@@ -36,6 +37,6 @@ export default function login() {
       <img src="assets/images/headphone.jpg" alt="Headphone">
     </div>
   </div>
-</main>
+  </section>
   `;
 }

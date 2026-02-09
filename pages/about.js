@@ -1,6 +1,5 @@
 export default function about() {
     return /*HTML*/ `
-<main>
 
     <section class="about-section">
 
@@ -48,7 +47,6 @@ By combining ecological values with rare and distinctive products, we create a s
 </div>
 </div>
     </section>
-</main>
 
     `;
 }

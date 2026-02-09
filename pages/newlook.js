@@ -1,22 +1,21 @@
 export default function newlook() {
   return /*HTML*/ `
 
-<main>
 
-  <section class="new-looks">
+  <section class="new-look">
 
     <!-- TITLES -->
     <div class="title-row">
-      <h2 class="section-title">Chanel</h2>
-      <h2 class="collection-title">Comme des Garçons</h2>
+      <h1 class="section-title">Chanel</h1>
+      <h1 class="collection-title">Comme des Garçons</h1>
     </div>
 
     <!-- FASHION GRID -->
     <div class="looks-grid">
 
       <div class="photo1">
-        <a href="chanel.html"> <img src="assets/images/chanel.jpg" alt="Chanel look"> target="_blank" class="source-button"></a>
-        <p class="brand-name">Taken from google</p>
+        <a href="chanel.html"  target="_blank"> <img src="assets/images/chanel.jpg"></a>
+        <p class="brand-name">Taken from Google</p>
       </div>
 
       <div class="photo2">
@@ -64,7 +63,6 @@ export default function newlook() {
 
     </div>
 
-  </section>
 
   <!-- NEWSLETTER -->
   <section class="newsletter">
@@ -73,11 +71,12 @@ export default function newlook() {
       <input type="email" placeholder="Email Address"><button>Subscribe</button>
     </div>
   </section>
+  </section>
 
-</main>
 
 
 
 
     `;
 }
+

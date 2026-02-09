@@ -1,5 +1,4 @@
 export default function header() {
-    const currentPath = window.location.pathname;
 
     return /*HTML*/ `
 <header class="header">
@@ -12,9 +11,9 @@ export default function header() {
   <span></span>
 </div>
 
-<div class="logo">
-<h1>StudioHybrid</h1>
-</div>
+<nav class="logo">
+    <a href="javascript:void(0)" class="nav-logo" onclick="window.navigateTo('/logo')">StudioHybrid</a>
+</nav>
 
 <div class="search-bar">
     <input type="text" id="searchInput" placeholder="Search products">
@@ -23,12 +22,11 @@ export default function header() {
 
 
 <nav class="nav">
-    <a href="javascript:void(0)" class="nav-about ${currentPath === '/about' ? 'active' : ''}" onclick="window.navigateTo('/about')">About</a>
-    <a href="javascript:void(0)" class="nav-contact ${currentPath === '/contact' ? 'active' : ''}" onclick="window.navigateTo('/contact')">Contact</a>
-    <a href="javascript:void(0)" class="nav-newlook ${currentPath === '/newlook' ? 'active' : ''}" onclick="window.navigateTo('/newlook')">New Look</a>
-    <a href="javascript:void(0)" class="nav-login ${currentPath === '/login' ? 'active' : ''}" onclick="window.navigateTo('/login')">Login</a>
+    <a href="javascript:void(0)" class="nav-about" onclick="window.navigateTo('/about')">About</a>
+    <a href="javascript:void(0)" class="nav-contact active" onclick="window.navigateTo('/contact')">Contact</a>
+    <a href="javascript:void(0)" class="nav-newlook"  onclick="window.navigateTo('/newlook')">New Look</a>
+    <a href="javascript:void(0)" class="nav-login" onclick="window.navigateTo('/login')">Login</a>
 </nav>
-
 
 </div>
 </header>

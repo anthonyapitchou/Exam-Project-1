@@ -1,7 +1,7 @@
 export default function lubutelVintage() {
-    return /*HTML*/ `
-<main class="login-page">
+  return /*HTML*/ `
 
+<section class="lubutel-vintage-page">
 
   <div class="login-header">
 <div class="back-arrow">
@@ -41,10 +41,10 @@ export default function lubutelVintage() {
       </a>
 
     </div>
-
   </div>
+  
+</section>
 
-</main>
 
     `;
 }

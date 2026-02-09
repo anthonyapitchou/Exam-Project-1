@@ -1,16 +1,17 @@
-.login {
-    width: 90%;
+.login-page {
+    width: 100%;
     min-height: 100vh;
     margin: auto;
     display: flex;
     flex-direction: column;
     gap: 20px;
+    background-color: #F3F3F3;
 }
 
 
 .login-one {
     display: flex;
-    width: 90%;
+    width: 85%;
     height: 1070px;
     margin: auto;
     justify-content: center;
@@ -20,7 +21,7 @@
     background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-bottom: 50px;
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 80px 120px;
 }
 
@@ -69,6 +70,8 @@
     font-size: 16px;
     cursor: pointer;
 }
+
+
 
 
 

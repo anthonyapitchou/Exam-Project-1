@@ -1,6 +1,7 @@
 export default function nike() {
   return /*HTML*/ `
-<main class="login-page">
+
+<section class="nike-page">
 
 
   <div class="login-header">
@@ -42,10 +43,8 @@ export default function nike() {
       </a>
 
     </div>
-
   </div>
-
-</main>
+</section>
 
     `;
 }

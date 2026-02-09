@@ -1,7 +1,7 @@
 export default function martens() {
   return /*HTML*/ `
-<main class="login-page">
 
+<section class="martens-page">
 
   <div class="login-header">
 <div class="back-arrow">
@@ -42,10 +42,9 @@ export default function martens() {
       </a>
 
     </div>
-
   </div>
 
-</main>
+  </section>
 
     `;
 }

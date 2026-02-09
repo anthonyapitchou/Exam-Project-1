@@ -1,7 +1,8 @@
 export default function contact() {
   return /*HTML*/ `
 
-  <main class="login-contact">
+  <section class="contact-page">
+
 
   <div class="login-header">
 <div class="back-arrow-contact" onclick="window.goBack();">
@@ -79,8 +80,8 @@ export default function contact() {
 
   </div>
   </div>
-
-</main>
-    `;
+</section> 
+`;
 }
+
 
