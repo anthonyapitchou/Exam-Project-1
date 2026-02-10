@@ -1,4 +1,5 @@
 export default function newlook() {
+
   return /*HTML*/ `
 
 
@@ -6,21 +7,21 @@ export default function newlook() {
 
     <!-- TITLES -->
     <div class="title-row">
-      <h1 class="section-title">Chanel</h1>
-      <h1 class="collection-title">Comme des Garçons</h1>
+      <h2 class="section-title">Chanel</h2>
+      <h2 class="collection-title">Comme des Garçons</h2>
     </div>
 
     <!-- FASHION GRID -->
     <div class="looks-grid">
 
       <div class="photo1">
-        <a href="chanel.html"  target="_blank"> <img src="assets/images/chanel.jpg"></a>
+        <a href="chanel.html"  target="_blank"> <img src="assets/images/chanel.jpg" alt="Chanel"></a>
         <p class="brand-name">Taken from Google</p>
       </div>
 
       <div class="photo2">
         <a href="https://www.chanel.com/us/fashion/p/A01112Y0129594305/classic-handbag-lambskin-gold-tone-metal/.html" target="_blank" >
-           <img src="assets/images/bagchanel.jpg">
+           <img src="assets/images/bagchanel.jpg" alt="Chanel bag">
         </a>
         <p class="brand-name">Click to see the bag</p>
       </div>
@@ -28,7 +29,7 @@ export default function newlook() {
 
 
       <div class="photo3"> <a href="https://www.farfetch.com/shopping/women/comme-des-garcons-play-x-converse-chuck-70-hi-multi-hearts-white-sneakers-item-16351319.aspx" target="_blank">
-        <img src="assets/images/blue.jpg">
+        <img src="assets/images/blue.jpg" alt="Comme des Garçons x Converse sneakers">
         </a>
         <p class="brand-name">Click to see the shoes</p>
       </div>
@@ -55,8 +56,9 @@ export default function newlook() {
         <p class="brand-name">Click to see the Dress</p>
 
       </div>
-<a href="https://hypebae.com/2022/3/rei-kawakubo-comme-des-garcons-designer-most-iconic-designs." target="_blank">
-      <div class="photo7">  <img src="assets/images/dress.jpg">
+      <div class="photo7">  <img src="assets/images/dress.jpg" alt="Comme des Garçons dress">
+      <a href="https://hypebae.com/2022/3/rei-kawakubo-comme-des-garcons-designer-most-iconic-designs." target="_blank">
+
       </a>
         <p class="brand-name">Click to see the Dress</p>
       </div>
@@ -65,18 +67,17 @@ export default function newlook() {
 
 
   <!-- NEWSLETTER -->
-  <section class="newsletter">
+
+  <form id="newsletter">
     <h2>Let's Keep In Touch</h2>
     <div class="newsletter-box">
-      <input type="email" placeholder="Email Address"><button>Subscribe</button>
+      <input type="email" id="email-input" placeholder="Email Address"> 
+      <button type="submit">Subscribe</button>
     </div>
+  </form>
+
   </section>
-  </section>
 
 
-
-
-
-    `;
+`;
 }
-

@@ -114,11 +114,11 @@ export function goBack() {
         router.navigate('/');
     }
 
-
-
-
-
 }
+
+
+
+
 
 // GLOBAL
 window.navigateTo = navigateTo;

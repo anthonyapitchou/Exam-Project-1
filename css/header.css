@@ -43,7 +43,7 @@ body {
     position: relative;
     display: inline-block;
     padding: 10px 0;
-    overflow: visible !important;
+    overflow: visible;
 }
 
 .logo::after,
