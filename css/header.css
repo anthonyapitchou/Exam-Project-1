@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    overflow-x: hidden;
 }
 
 html,
@@ -90,11 +89,20 @@ body {
     text-decoration: none;
     color: #000;
     font-size: 18px;
-    font-weight: 500;
     text-transform: uppercase;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 
+
+.nav a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    color: #592C22;
+
+}
 
 .burger {
     display: none;

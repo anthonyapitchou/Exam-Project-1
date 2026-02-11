@@ -22,17 +22,14 @@ export default function header() {
 
 
 <nav class="nav">
-    <a href="javascript:void(0)" class="nav-about" onclick="window.navigateTo('/about')">About</a>
-    <a href="javascript:void(0)" class="nav-contact active " onclick="window.navigateTo('/contact')">Contact</a>
-    <a href="javascript:void(0)" class="nav-newlook"  onclick="window.navigateTo('/newlook')">New Look</a>
-    <a href="javascript:void(0)" class="nav-login" onclick="window.navigateTo('/login')">Login</a>
+   <a href="javascript:void(0)" class="nav-about ${currentPath === '/about' ? 'active' : ''}" onclick="window.navigateTo('/about')">About</a>
+    <a href="javascript:void(0)" class="nav-contact ${currentPath === '/contact' ? 'active' : ''}" onclick="window.navigateTo('/contact')">Contact</a>
+    <a href="javascript:void(0)" class="nav-newlook ${currentPath === '/newlook' ? 'active' : ''}" onclick="window.navigateTo('/newlook')">New Look</a>
+    <a href="javascript:void(0)" class="nav-login ${currentPath === '/login' ? 'active' : ''}" onclick="window.navigateTo('/login')">Login</a>
 </nav>
 
 
-<nav>
-      <NavLink to="/" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>Accueil</NavLink>
-      <NavLink to="/about" className={({ isActive }) => isActive ? "nav-link active" : "nav-link"}>À propos</NavLink>
-    </nav>
+
 
 </div>
 </header>
