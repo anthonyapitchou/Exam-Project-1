@@ -12,7 +12,7 @@ export default function header() {
 </div>
 
 <nav class="logo">
-    <a href="javascript:void(0)" class="nav-logo" onclick="window.navigateTo('/logo')">StudioHybrid</a>
+    <a href="javascript:void(0)" class="nav-logo" onclick="window.navigateTo('/home')">StudioHybrid</a>
 </nav>
 
 <div class="search-bar">
@@ -22,11 +22,14 @@ export default function header() {
 
 
 <nav class="nav">
-   <a href="javascript:void(0)" class="nav-about ${currentPath === '/about' ? 'active' : ''}" onclick="window.navigateTo('/about')">About</a>
-    <a href="javascript:void(0)" class="nav-contact ${currentPath === '/contact' ? 'active' : ''}" onclick="window.navigateTo('/contact')">Contact</a>
-    <a href="javascript:void(0)" class="nav-newlook ${currentPath === '/newlook' ? 'active' : ''}" onclick="window.navigateTo('/newlook')">New Look</a>
-    <a href="javascript:void(0)" class="nav-login ${currentPath === '/login' ? 'active' : ''}" onclick="window.navigateTo('/login')">Login</a>
+  <a href="javascript:void(0)" data-route="/about" onclick="window.navigateTo('/about')">About</a>
+  <a href="javascript:void(0)" data-route="/contact" onclick="window.navigateTo('/contact')">Contact</a>
+  <a href="javascript:void(0)" data-route="/newlook" onclick="window.navigateTo('/newlook')">New Look</a>
+  <a href="javascript:void(0)" data-route="/login" onclick="window.navigateTo('/login')">Login</a>
 </nav>
+
+
+
 
 
 
@@ -35,5 +38,20 @@ export default function header() {
 </header>
     `;
 
+}
+
+export function setActiveNav() {
+    const links = document.querySelectorAll('.nav a');
+    const currentPath = window.location.pathname;
+
+    links.forEach(link => {
+        const route = link.dataset.route;
+
+        if (route === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }
 

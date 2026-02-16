@@ -23,6 +23,8 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
+    padding: 10px;
+
 }
 
 .home-content p {
@@ -40,6 +42,7 @@
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: 12px;
+    padding: 10px;
 }
 
 /*new container*/
@@ -62,6 +65,7 @@
     height: 100%;
     object-fit: cover;
     display: block;
+    border-radius: 15px;
 }
 
 .container-two {
@@ -99,10 +103,10 @@
 
 /*email container*/
 
-.email-container {
+.input-mail {
     background-color: #D2C1B6;
     max-width: 1200px;
-    padding: 30px;
+    padding: 50px;
     margin: 20px auto;
     border-radius: 10px;
     margin-top: 0px;
@@ -118,19 +122,10 @@
 
 }
 
-.input-mail {
-    display: flex;
-}
-
-.text-mail h2 {
+.input-mail h2 {
     margin-bottom: 6px;
 }
 
-.input-mail {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
 
 .input-mail input {
     width: 200px;
@@ -143,14 +138,26 @@
 }
 
 .input-mail button {
-    padding: 20px 25px;
+    padding: 15px 25px;
     font-size: 18px;
     border-radius: 8px;
     border: none;
     cursor: pointer;
     max-height: 50px;
     overflow: hidden;
+    background-color: #1B1B1B;
+    color: white;
 
+}
+
+form#mail-form {
+    display: flex;
+    flex-direction: row;
+}
+
+form#mail-form:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -209,6 +216,10 @@
 
 }
 
+button.btn-open {
+    margin-right: 10px;
+}
+
 .btn-open {
     background: transparent;
     border: 2px solid #0088FF;
@@ -217,6 +228,14 @@
     padding: 6px 16px;
     font-size: 13px;
     cursor: pointer;
+}
+
+.btn-open:hover {
+    background-color: transparent;
+    color: #1B1B1B;
+    border: 2px solid #0088FF;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /*new container info*/

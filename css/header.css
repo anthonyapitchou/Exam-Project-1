@@ -85,7 +85,18 @@ body {
     gap: 20px;
 }
 
+
 .nav a {
+    text-decoration: none;
+    color: #000;
+    font-size: 18px;
+    text-transform: uppercase;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.nav a.active {
     text-decoration: none;
     color: #000;
     font-size: 18px;
@@ -100,7 +111,9 @@ body {
 .nav a:hover {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    color: #592C22;
+    color: #000;
+    font-weight: bold;
+    padding: 5px;
 
 }
 
@@ -161,9 +174,7 @@ body {
         z-index: 1000;
     }
 
-    .nav.active {
-        display: flex;
-    }
+
 
     .nav a {
         font-size: 16px;

@@ -65,7 +65,6 @@ export default function newlook() {
 
     </div>
 
-
   <!-- NEWSLETTER -->
 
   <form id="newsletter">

@@ -71,7 +71,10 @@
     cursor: pointer;
 }
 
-
+.nav a.active {
+    font-weight: bold;
+    color: black;
+}
 
 
 

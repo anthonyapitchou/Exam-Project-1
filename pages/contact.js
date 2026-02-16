@@ -18,8 +18,9 @@ export default function contact() {
       <p>Keep in touch with us with the latest updates!</p>
       </div>
 
-    <form id="contact-form">
 
+
+    <form id="contact-form">
   <label for="firstName">First Name</label>
   <input
     type="text"
@@ -49,7 +50,7 @@ export default function contact() {
     type="email"
     id="email"
     name="email"
-    placeholder="Enter your Email"
+    placeholder="Enter your Email" 
     required>
 
   <label for="message">Write your Message</label>

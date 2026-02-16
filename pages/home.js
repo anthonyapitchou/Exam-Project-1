@@ -23,17 +23,27 @@ export default function home() {
     </div>
     </div>
 
-
-<div class="email-container">
-<div class="text-mail">
-<h2>DAILY POSTS</h2>
-<p>DELIVERED TO YOUR INBOX</p>
-</div>
-
 <div class="input-mail">
-<input type="email" placeholder="Email Address"><button>Subscribe</button>
+  <div class="text-mail">
+    <h2>DAILY POSTS</h2>
+    <p>DELIVERED TO YOUR INBOX</p>
+  </div>
+
+  <form id="mail-form">
+      <input type="email" id="email-input" placeholder="Email Address"> 
+      <button type="submit">Subscribe</button>
+  </form>
 </div>
-</div>
+
+<script>
+  document.getElementById('mail-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    alert('✅ Thank you ! ' + email + ' has been subscribed.');
+  });
+</script>
+
+
 
 <div class="New-look">
 <h2>New look</h2>

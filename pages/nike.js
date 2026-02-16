@@ -5,7 +5,7 @@ export default function nike() {
 
 
   <div class="login-header">
-<div class="back-arrow">
+<div class="back-arrow-nike" onclick="window.goBack();">
     ←
   </div>
 

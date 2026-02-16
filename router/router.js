@@ -12,6 +12,9 @@ class Router {
     }
 
     init() {
+        if (!window.location.hash) {
+            window.location.hash = '/home';
+        }
         // Load initial page from hash
         this.loadPage(this.getPath());
 
@@ -22,7 +25,7 @@ class Router {
     }
 
     getPath() {
-        return location.hash.replace('#', '') || '/';
+        return location.hash.replace('#', '') || '/home';
     }
 
     navigate(path) {
@@ -44,7 +47,10 @@ class Router {
         this.currentPage = path;
 
         this.attachEventListeners(path);
+
+        setActiveNav();
     }
+
 
     attachEventListeners(path) {
         // LOGIN
@@ -114,6 +120,22 @@ export function goBack() {
         router.navigate('/');
     }
 
+}
+
+
+export function setActiveNav() {
+    const links = document.querySelectorAll('.nav a');
+    const currentPath = location.hash.replace('#', '') || '/';
+
+    links.forEach(link => {
+        const route = link.dataset.route;
+
+        if (route === currentPath) {
+            link.classList.add('active');
+        } else {
+            link.classList.remove('active');
+        }
+    });
 }
 
 
