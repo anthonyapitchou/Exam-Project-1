@@ -9,6 +9,7 @@ import lubutelvintage from "../pages/lubutelvintage.js";
 import martens from "../pages/martens.js";
 import newlook from "../pages/newlook.js";
 import nike from "../pages/nike.js";
+import edit from "../pages/edit.js";
 
 const routes = [
     { path: "/", component: home },
@@ -21,6 +22,7 @@ const routes = [
     { path: "/martens", component: martens },
     { path: "/newlook", component: newlook },
     { path: "/nike", component: nike },
+    { path: "/edit", component: edit },
 ];
 
 export default routes;

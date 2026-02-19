@@ -36,8 +36,6 @@ export default function footer() {
 <img src="assets/images/payment.jpg" alt="Payment Methods">
 </div>  
 
-
-
     `;
 
 }

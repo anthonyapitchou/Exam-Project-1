@@ -10,6 +10,8 @@ export default function header() {
   <span></span>
   <span></span>
 </div>
+<div class="mobile-overlay" id="mobileOverlay"></div>
+
 
 <nav class="logo">
     <a href="javascript:void(0)" class="nav-logo" onclick="window.navigateTo('/home')">StudioHybrid</a>
@@ -25,6 +27,7 @@ export default function header() {
   <a href="javascript:void(0)" data-route="/about" onclick="window.navigateTo('/about')">About</a>
   <a href="javascript:void(0)" data-route="/contact" onclick="window.navigateTo('/contact')">Contact</a>
   <a href="javascript:void(0)" data-route="/newlook" onclick="window.navigateTo('/newlook')">New Look</a>
+  <a href="javascript:void(0)" data-route="/edit" onclick="window.navigateTo('/edit')">Edit</a>
   <a href="javascript:void(0)" data-route="/login" onclick="window.navigateTo('/login')">Login</a>
 </nav>
 

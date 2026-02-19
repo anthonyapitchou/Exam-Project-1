@@ -1,5 +1,5 @@
 export default function about() {
-    return /*HTML*/ `
+        return /*HTML*/ `
 
     <section class="about-section">
 
@@ -11,7 +11,8 @@ export default function about() {
         <div class="about-text">
         <h2>Our vision</h2>
         <p>This blog dedicated to discovering rare, bold, and inspiring pieces from around the world. Our platform celebrates individuality, creativity, and style for those who dare to be different.
-We highlight unique fashion items, statement accessories, and design-forward objects that blend aesthetics with personality. Each feature is carefully selected to reflect originality, craftsmanship, and a strong visual identity.
+        You can edit our content to reflect your own unique perspective and experiences delete and do it again.
+        We highlight unique fashion items, statement accessories, and design-forward objects that blend aesthetics with personality. Each feature is carefully selected to reflect originality, craftsmanship, and a strong visual identity.
 Sustainability and conscious choices are at the heart of our vision. We support ecological products and responsible brands that respect both creativity and the planet.
 Our blog is a space for modern minds, where fashion meets culture, design, and self-expression.
 </p>

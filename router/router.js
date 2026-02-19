@@ -138,6 +138,105 @@ export function setActiveNav() {
     });
 }
 
+function initMobileMenu() {
+    const burger = document.getElementById("burger");
+    const nav = document.querySelector(".nav");
+    const overlay = document.getElementById("mobileOverlay");
+
+    if (!burger || !nav || !overlay) return;
+
+    burger.addEventListener("click", () => {
+        nav.classList.toggle("open");
+        overlay.classList.toggle("active");
+    });
+
+    overlay.addEventListener("click", () => {
+        nav.classList.remove("open");
+        overlay.classList.remove("active");
+    });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+    initMobileMenu();
+
+    if (path === '/edit') {
+
+        const savedPost = localStorage.getItem("editedPost");
+
+        if (savedPost) {
+            const post = JSON.parse(savedPost);
+
+            document.getElementById('edit-title').value = post.title;
+            document.getElementById('edit-body').value = post.body;
+            document.getElementById('edit-image').value = post.image;
+        }
+
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const title = document.getElementById('edit-title').value;
+                const body = document.getElementById('edit-body').value;
+                const image = document.getElementById('edit-image').value;
+
+                const postData = {
+                    title,
+                    body,
+                    image
+                };
+
+                localStorage.setItem("editedPost", JSON.stringify(postData));
+
+                alert("Post saved!");
+            });
+        }
+    }
+
+
+    /*home edit*/
+    if (path === '/home') {
+
+        const savedPost = localStorage.getItem("editedPost");
+
+        if (savedPost) {
+            const post = JSON.parse(savedPost);
+
+            const homeContainer = document.querySelector(".home-content");
+
+            const newPost = document.createElement("div");
+            newPost.classList.add("custom-post");
+
+            newPost.innerHTML = `
+            <h2>${post.title}</h2>
+            <p>${post.body}</p>
+            ${post.image ? `<img src="${post.image}" alt="Post image">` : ""}
+
+            <div class="post-actions">
+                <button id="edit-post-btn">Edit</button>
+                <button id="delete-post-btn">Delete</button>
+            </div>
+        `;
+
+            homeContainer.appendChild(newPost);
+
+            // DELETE
+            document.getElementById("delete-post-btn").addEventListener("click", () => {
+                localStorage.removeItem("editedPost");
+                newPost.remove();
+            });
+
+            // EDIT
+            document.getElementById("edit-post-btn").addEventListener("click", () => {
+                window.navigateTo('/edit');
+            });
+        }
+    }
+});
+
+
+
+
+
 
 
 

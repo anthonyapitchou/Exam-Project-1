@@ -156,6 +156,7 @@
         padding: 0;
         width: 40px;
         height: 40px;
+        margin: 10px;
     }
 
     .login-container-ferragamo {
@@ -167,8 +168,14 @@
     }
 
     .left-container-ferragamo {
-        display: none;
-        /* on cache l’image sur mobile */
+        width: 100%;
+    }
+
+    .left-container-ferragamo img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 10px;
     }
 
     .right-container-ferragamo {

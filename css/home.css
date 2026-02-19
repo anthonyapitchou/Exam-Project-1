@@ -3,8 +3,7 @@
     background-size: cover;
     background-repeat: no-repeat;
     width: 100%;
-    min-width: 1200px;
-    height: 1000px;
+    min-height: 100vh;
     position: relative;
     margin: 0px auto;
     margin-bottom: 20px;
@@ -29,7 +28,7 @@
 
 .home-content p {
     position: absolute;
-    top: 28%;
+    top: 35%;
     left: 40%;
     transform: translate(-90%, -50%);
     color: #FDFBF9;
@@ -306,7 +305,6 @@ form#mail-form:hover {
     gap: 24px;
     max-width: 1200px;
     margin: 60px auto;
-    max-height: 350px;
 }
 
 
@@ -353,4 +351,143 @@ form#mail-form:hover {
     padding: 32px 28px;
     border-radius: 6px;
     position: relative;
+}
+
+/*edit page*/
+.custom-post {
+    max-width: 900px;
+    margin: 60px auto;
+    padding: 30px;
+    background: #f5f5f5;
+    border-radius: 12px;
+}
+
+.custom-post img {
+    width: 100%;
+    margin-top: 20px;
+    border-radius: 10px;
+}
+
+
+
+.post-actions {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.post-actions button {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.post-actions button:first-child {
+    background: #6EACDA;
+    color: white;
+}
+
+.post-actions button:last-child {
+    background: #cc4444;
+    color: white;
+}
+
+
+
+@media (max-width: 768px) {
+    .home-content h1 {
+        top: 30%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        font-size: x-large;
+    }
+
+    .home-content p {
+        font-size: 16px;
+        top: 55%;
+        left: 40%;
+        transform: translate(-50%, -50%);
+        max-width: 90%;
+
+    }
+
+    .home-content {
+
+        background-position: center;
+        background-size: cover;
+        margin: 0 auto;
+        height: 70vh;
+        width: 100%;
+    }
+
+    .last-got {
+        grid-template-columns: 1fr;
+        margin: 10px;
+
+    }
+
+    .container-two {
+        grid-template-columns: 1fr;
+    }
+
+    .container-two img:last-of-type {
+        width: 100%;
+    }
+
+    .input-mail {
+        flex-direction: column;
+        gap: 15px;
+        margin: 10px;
+    }
+
+    .input-mail button {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    .input-mail input {
+        width: 100%;
+        max-width: 200px;
+    }
+
+    form#mail-form {
+        flex-direction: row;
+    }
+
+    form#mail-form:hover {
+        background-color: transparent;
+        color: #0088FF;
+        border: 2px solid #0088FF;
+    }
+
+
+    .pictures-container {
+        flex-direction: column;
+        padding: 10px;
+        gap: 15px;
+    }
+
+    .pictures-container img {
+        border-radius: 10px;
+    }
+
+
+    .clothes-info {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .container-review {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+
+    .review-left,
+    .review-middle,
+    .review-right {
+        max-width: 100%;
+    }
+
 }
