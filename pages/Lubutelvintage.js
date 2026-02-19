@@ -4,27 +4,27 @@ export default function lubutelVintage() {
 <section class="lubutel-vintage-page">
 
   <div class="login-header">
-<div class="back-arrow">
+<div class="back-arrow-lubutel" onclick="window.goBack();" >
     ←
   </div>
 
-  <div class="login-container">
+  <div class="login-container-lubutel">
 
   
 
     <!-- LEFT : image -->
-    <div class="left-container">
+    <div class="left-container-lubutel">
       <img src="assets/images/vintage.jpg" alt="camera">
     </div>
 
     <!-- RIGHT : content -->
-    <div class="right-container">
+    <div class="right-container-lubutel">
 
       <div class="text-container">
         <h1>Lubutel Vintage</h1>
       </div>
 
-      <div class="main-text">
+      <div class="main-text-lubutel">
         <p>
           This vintage camera captures the timeless charm of classic photography. 
           With its solid metal body, textured details, and iconic twin-lens design, it reflects a period when craftsmanship and precision were at the heart of every shot. 

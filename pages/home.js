@@ -79,9 +79,9 @@ export default function home() {
 
     <div class="photo-4">
     <img src="assets/images/vintage.jpg" alt="lubutel vintage camera">
-    <div class="photo-info"
+    <div class="photo-info">
     <p class="brand">Lubutel Vintage Camera</p>
-<button class="btn-open" data-page="lubutelVintage">Open</button>
+<button class="btn-open" data-page="lubutelvintage">Open</button>
     </div>
 </div>
 </div>

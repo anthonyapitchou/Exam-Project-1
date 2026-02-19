@@ -5,27 +5,27 @@ export default function ferragamo() {
 
 
   <div class="login-header">
-<div class="back-arrow">
+<div class="back-arrow-ferragamo" onclick="window.goBack();" >
     ←
   </div>
 
-  <div class="login-container">
+  <div class="login-container-ferragamo">
 
   
 
     <!-- LEFT : image -->
-    <div class="left-container">
+    <div class="left-container-ferragamo">
       <img src="assets/images/bag.jpg" alt="bag">
     </div>
 
     <!-- RIGHT : content -->
-    <div class="right-container">
+    <div class="right-container-ferragamo">
 
       <div class="text-container">
         <h1>Ferragamo</h1>
       </div>
 
-      <div class="main-text">
+      <div class="main-text-ferragamo">
         <p>
           This elegant handbag combines refined luxury with a warm, natural texture. 
           The smooth leather top contrasts beautifully with the woven body, creating a perfect balance between sophistication and craftsmanship. 

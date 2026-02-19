@@ -7,7 +7,9 @@ export default function footer() {
 <!-- brand -->
 
 <div class="footer-brand">
-<h1>StudioHybrid</h1>
+<nav class="footer-logo">
+    <a href="javascript:void(0)" class="footer-logo" onclick="window.navigateTo('/home')">StudioHybrid</a>
+</nav>
 <div class="social-icons">
 <img src="assets/icons/facebook.png" alt="facebook-logo" class="facebook-logo">
 <img src="assets/icons/instagram.png" alt="twitter-logo" class="instagram-logo">
@@ -19,15 +21,15 @@ export default function footer() {
 </div>
 
 <!-- quick links -->
-<div class="footer-links">
+<nav class="footer-links">
 <h3>Quick Links</h3>
 <ul>
-    <li><a href="about.index.html">About</a></li>   
-    <li><a href="contact.html" class="active">Contact</a></li>
-    <li><a href="login.html">Login</a></li>
-    <li><a href="Newlook.html">New Look</a></li>
+    <li><a href=javascript:void(0)" onclick="window.navigateTo('/about')">About</a></li>   
+    <li><a href=javascript:void(0)" onclick="window.navigateTo('/contact')">Contact</a></li>
+    <li><a href=javascript:void(0)" onclick="window.navigateTo('/login')">Login</a></li>
+    <li><a href=javascript:void(0)" onclick="window.navigateTo('/newlook')">New Look</a></li>
 </ul>
-</div>
+</nav>
 
 <div class="footer-payments">
 <h3>Payment Service</h3>

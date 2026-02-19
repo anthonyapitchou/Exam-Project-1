@@ -14,6 +14,20 @@
     color: white;
 }
 
+.footer-logo {
+    font-size: 48px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
+.footer-logo:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+
 /* BRAND */
 .footer-brand h1 {
     font-size: 48px;

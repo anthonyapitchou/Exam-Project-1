@@ -10,21 +10,21 @@ export default function nike() {
   </div>
 
 
-  <div class="login-container">
+  <div class="login-container-nike">
 
     <!-- LEFT : image -->
-    <div class="left-container">
+    <div class="left-container-nike">
       <img src="assets/images/nike.jpg" alt="Nike Athletic Shoe">
     </div>
 
     <!-- RIGHT : content -->
-    <div class="right-container">
+    <div class="right-container-nike">
 
       <div class="text-container">
         <h1>Nike Athletic</h1>
       </div>
 
-      <div class="main-text">
+      <div class="main-text-nike">
         <p>
           A bold and futuristic sneaker designed to stand out. Its vibrant neon green color
           brings energy and confidence, while the lightweight mesh upper ensures breathability
