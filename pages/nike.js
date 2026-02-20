@@ -1,17 +1,20 @@
 export default function nike() {
   return /*HTML*/ `
-
 <section class="nike-page">
 
-
   <div class="login-header">
-<div class="back-arrow-nike" >
-    ←
+    <div class="back-arrow">
+        ←
+    </div>
+
+
+    <button class="share-btn-nike" onclick="window.sharePost()" style="cursor:pointer; background:none; border:1px solid #000; padding:5px 15px; border-radius:20px; font-weight:bold;">
+        SHARE 🔗
+    </button>
+    
   </div>
 
-
   <div class="login-container-nike">
-
     <!-- LEFT : image -->
     <div class="left-container-nike">
       <img src="assets/images/nike.jpg" alt="Nike Athletic Shoe">
@@ -19,7 +22,6 @@ export default function nike() {
 
     <!-- RIGHT : content -->
     <div class="right-container-nike">
-
       <div class="text-container">
         <h1>Nike Athletic</h1>
       </div>
@@ -38,13 +40,11 @@ export default function nike() {
         <p class="price">Price: 120 €</p>
       </div>
 
-      <a href="https://unsplash.com/photos/white-and-red-nike-athletic-shoe-J2-wAQDckus"  target="_blank" class="source-button"> Click to see the shoes
-     
+      <a href="https://unsplash.com/photos/white-and-red-nike-athletic-shoe-J2-wAQDckus" target="_blank" class="source-button"> 
+        Click to see the shoes
       </a>
-
     </div>
   </div>
 </section>
-
     `;
 }

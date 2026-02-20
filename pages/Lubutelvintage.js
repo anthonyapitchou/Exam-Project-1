@@ -8,6 +8,11 @@ export default function lubutelVintage() {
     ←
   </div>
 
+<button class="share-btn-lubutel" onclick="window.sharePost()" style="cursor:pointer; background:none; border:1px solid #000; padding:5px 15px; border-radius:20px; font-weight:bold;">
+        SHARE 🔗
+    </button>
+
+
   <div class="login-container-lubutel">
 
   

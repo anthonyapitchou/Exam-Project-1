@@ -8,9 +8,12 @@ export default function martens() {
     ←
   </div>
 
+<button class="share-btn-martens" onclick="window.sharePost()" style="cursor:pointer; background:none; border:1px solid #000; padding:5px 15px; border-radius:20px; font-weight:bold;">
+        SHARE 🔗
+    </button>
+
   <div class="login-container-martens">
 
-  
 
     <!-- LEFT : image -->
     <div class="left-container-martens">

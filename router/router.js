@@ -162,6 +162,31 @@ export function setActiveNav() {
     });
 }
 
+// --- TOUT EN BAS DE ROUTER.JS ---
+
+// Fonction de partage globale pour tes pages de marques
+window.sharePost = async () => {
+    try {
+        // Tente d'ouvrir le menu de partage natif (Mobile/Mac)
+        if (navigator.share) {
+            await navigator.share({
+                title: 'StudioHybrid Blog',
+                url: window.location.href
+            });
+        } else {
+            // Solution de secours : Copie le lien pour Desktop/Windows
+            await navigator.clipboard.writeText(window.location.href);
+            alert("Lien de l'article copié dans le presse-papier !");
+        }
+    } catch (err) {
+        console.log("Erreur de partage:", err);
+    }
+};
+
+// On s'assure aussi que goBack est bien global pour tes flèches de retour
+window.goBack = goBack;
+
+
 // Rendre accessible au onclick du HTML
 window.goBack = goBack;
 
