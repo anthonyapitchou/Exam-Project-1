@@ -123,7 +123,11 @@ body {
     display: none;
 }
 
+<<<<<<< HEAD
 #logout-btn {
+=======
+#logout-btn{
+>>>>>>> a8e9173c3c7cbefa59ec3a43f966054af4d29fc5
     padding: 8px 20px;
     background-color: transparent;
     border: 2px solid #000;
