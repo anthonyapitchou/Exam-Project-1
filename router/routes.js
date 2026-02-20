@@ -1,5 +1,3 @@
-// routes.js - Route definitions for Fashion Blog
-
 import about from "../pages/about.js";
 import contact from "../pages/contact.js";
 import ferragamo from "../pages/ferragamo.js"; 
@@ -30,6 +28,7 @@ const routes = [
 ];
 
 export default routes;
+
 
 
 
