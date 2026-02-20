@@ -2,10 +2,10 @@
 
 import about from "../pages/about.js";
 import contact from "../pages/contact.js";
-import ferragamo from "../pages/ferragamo.js";
+import Ferragamo from "../pages/Ferragamo.js";
 import home from "../pages/home.js";
 import login from "../pages/login.js";
-import lubutelvintage from "../pages/lubutelvintage.js";
+import Lubutelvintage from "../pages/Lubutelvintage.js";
 import martens from "../pages/martens.js";
 import newlook from "../pages/newlook.js";
 import nike from "../pages/nike.js";
@@ -22,8 +22,8 @@ const routes = [
     { path: "/contact", component: contact },
     { path: "/edit", component: edit },
     { path: "/post", component: post },
-    { path: "/ferragamo", component: ferragamo },
-    { path: "/lubutelvintage", component: lubutelvintage },
+    { path: "/ferragamo", component: Ferragamo },
+    { path: "/lubutelvintage", component: Lubutelvintage },
     { path: "/martens", component: martens },
     { path: "/newlook", component: newlook },
     { path: "/nike", component: nike },
