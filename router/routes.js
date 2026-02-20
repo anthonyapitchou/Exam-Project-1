@@ -1,11 +1,11 @@
-// routes.js - Route definitions for Fashion Blog
+// routes.js - CORRECTION DES MAJUSCULES (Vérifie bien tes fichiers !)
 
 import about from "../pages/about.js";
 import contact from "../pages/contact.js";
-import ferragamo from "../pages/ferragamo.js";
+import ferragamo from "../pages/Ferragamo.js"; 
 import home from "../pages/home.js";
 import login from "../pages/login.js";
-import lubutelvintage from "../pages/lubutelvintage.js";
+import lubutelvintage from "../pages/Lubutelvintage.js"; 
 import martens from "../pages/martens.js";
 import newlook from "../pages/newlook.js";
 import nike from "../pages/nike.js";
@@ -22,12 +22,13 @@ const routes = [
     { path: "/contact", component: contact },
     { path: "/edit", component: edit },
     { path: "/post", component: post },
-    { path: "/ferragamo", component: Ferragamo },
-    { path: "/lubutelvintage", component: Lubutelvintage },
+    { path: "/ferragamo", component: ferragamo },
+    { path: "/lubutelvintage", component: lubutelvintage },
     { path: "/martens", component: martens },
     { path: "/newlook", component: newlook },
     { path: "/nike", component: nike },
 ];
 
 export default routes;
+
 
