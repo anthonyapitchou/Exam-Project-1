@@ -1,5 +1,3 @@
-// routes.js - Route definitions for Fashion Blog
-
 import about from "../pages/about.js";
 import contact from "../pages/contact.js";
 import Ferragamo from "../pages/Ferragamo.js";
@@ -17,8 +15,8 @@ const routes = [
     { path: "/home", component: home },
     { path: "/about", component: about },
     { path: "/contact", component: contact },
-    { path: "/Ferragamo", component: Ferragamo },
-    { path: "/Lubutelvintage", component: Lubutelvintage },
+    { path: "/ferragamo", component: Ferragamo },
+    { path: "/lubutelvintage", component: Lubutelvintage },
     { path: "/martens", component: martens },
     { path: "/newlook", component: newlook },
     { path: "/nike", component: nike },
