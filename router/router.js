@@ -1,4 +1,4 @@
-// router.js - SPA Router with hash (#) to avoid reload white page
+// router.js
 
 import routes from './routes.js';
 
@@ -15,10 +15,9 @@ class Router {
         if (!window.location.hash) {
             window.location.hash = '/home';
         }
-        // Load initial page from hash
+
         this.loadPage(this.getPath());
 
-        // Listen to hash change
         window.addEventListener('hashchange', () => {
             this.loadPage(this.getPath());
         });
@@ -47,12 +46,11 @@ class Router {
         this.currentPage = path;
 
         this.attachEventListeners(path);
-
         setActiveNav();
     }
 
-
     attachEventListeners(path) {
+
         // LOGIN
         if (path === '/' || path === '/login') {
             const loginForm = document.querySelector('#login-form');
@@ -67,21 +65,14 @@ class Router {
         // CONTACT
         if (path === '/contact') {
             const contactForm = document.querySelector('#contact-form');
-
             if (contactForm) {
                 contactForm.addEventListener('submit', (e) => {
                     e.preventDefault();
-
-                    if (typeof Swal === 'undefined') {
-                        console.error('SweetAlert is not loaded');
-                        return;
-                    }
-
+                    if (typeof Swal === 'undefined') return;
                     Swal.fire({
                         title: 'Thank you!',
-                        text: 'Your message has been received, we will get back to you as soon as possible',
-                        icon: 'success',
-                        customClass: { popup: 'contact-swal-popup' }
+                        text: 'Your message has been received.',
+                        icon: 'success'
                     }).then(() => {
                         goBack();
                     });
@@ -89,47 +80,139 @@ class Router {
             }
         }
 
-
-        // HOME buttons
+        // HOME
+        // HOME
         if (path === '/home') {
             document.querySelectorAll('.btn-open').forEach(btn => {
                 btn.addEventListener('click', () => {
                     this.navigate(`/${btn.dataset.page}`);
                 });
             });
+
+            // NEWSLETTER
+            const newsletterForm = document.getElementById('newsletter');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('email-input').value;
+                    if (email) {
+                        newsletterForm.reset();
+                    }
+                });
+            }
+
+            // POST
+            const savedPost = localStorage.getItem("editedPost");
+
+            if (savedPost) {
+                const post = JSON.parse(savedPost);
+                const homeContainer = document.querySelector(".home-section");
+
+                if (!homeContainer) return;
+
+                const newPost = document.createElement("div");
+                newPost.classList.add("custom-post");
+
+                newPost.innerHTML = `
+            <div class="custom-post-inner">
+                <h2>${post.title}</h2>
+                <p>${post.body}</p>
+                ${post.image ? `<img src="${post.image}" alt="Post image">` : ""}
+                <div class="custom-post-buttons">
+                    <button id="edit-post-btn">Edit</button>
+                    <button id="delete-post-btn">Delete</button>
+                </div>
+            </div>
+        `;
+
+                homeContainer.appendChild(newPost);
+
+                document.getElementById("delete-post-btn")
+                    .addEventListener("click", () => {
+                        localStorage.removeItem("editedPost");
+                        newPost.remove();
+                    });
+
+                document.getElementById("edit-post-btn")
+                    .addEventListener("click", () => {
+                        this.navigate('/edit');
+                    });
+            }
+        }
+
+        // EDIT PAGE
+        if (path === '/edit') {
+
+            const form = document.getElementById('edit-post-form');
+            const savedPost = localStorage.getItem("editedPost");
+
+            if (savedPost) {
+                const post = JSON.parse(savedPost);
+                document.getElementById('edit-title').value = post.title || '';
+                document.getElementById('edit-body').value = post.body || '';
+            }
+
+            if (form) {
+                form.addEventListener('submit', (e) => {
+                    e.preventDefault();
+
+                    const title = document.getElementById('edit-title').value;
+                    const body = document.getElementById('edit-body').value;
+                    const imageInput = document.getElementById('edit-image');
+                    const file = imageInput.files[0];
+
+                    if (file) {
+                        const reader = new FileReader();
+                        reader.onload = (event) => {
+                            const postData = { title, body, image: event.target.result };
+                            localStorage.setItem("editedPost", JSON.stringify(postData));
+                            this.navigate('/home');
+                        };
+                        reader.readAsDataURL(file);
+                    } else {
+                        const savedPost = localStorage.getItem("editedPost");
+                        const oldImage = savedPost ? JSON.parse(savedPost).image : '';
+                        localStorage.setItem("editedPost", JSON.stringify({ title, body, image: oldImage }));
+                        this.navigate('/home');
+                    }
+                });
+            }
+
+            const deleteBtn = document.getElementById("delete-post");
+            if (deleteBtn) {
+                deleteBtn.addEventListener("click", () => {
+                    localStorage.removeItem("editedPost");
+                    this.navigate('/home');
+                });
+            }
         }
     }
 }
 
-// INIT
+// EXPORTS
 export function initRouter() {
     router = new Router(routes);
     router.init();
 }
 
-// NAVIGATION
 export function navigateTo(path) {
     if (router) router.navigate(path);
 }
 
-// BACK (SPA safe)
 export function goBack() {
     if (previousPage) {
         router.navigate(previousPage);
     } else {
-        router.navigate('/');
+        router.navigate('/home');
     }
-
 }
-
 
 export function setActiveNav() {
     const links = document.querySelectorAll('.nav a');
-    const currentPath = location.hash.replace('#', '') || '/';
+    const currentPath = location.hash.replace('#', '') || '/home';
 
     links.forEach(link => {
         const route = link.dataset.route;
-
         if (route === currentPath) {
             link.classList.add('active');
         } else {
@@ -137,110 +220,3 @@ export function setActiveNav() {
         }
     });
 }
-
-function initMobileMenu() {
-    const burger = document.getElementById("burger");
-    const nav = document.querySelector(".nav");
-    const overlay = document.getElementById("mobileOverlay");
-
-    if (!burger || !nav || !overlay) return;
-
-    burger.addEventListener("click", () => {
-        nav.classList.toggle("open");
-        overlay.classList.toggle("active");
-    });
-
-    overlay.addEventListener("click", () => {
-        nav.classList.remove("open");
-        overlay.classList.remove("active");
-    });
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-    initMobileMenu();
-
-    if (path === '/edit') {
-
-        const savedPost = localStorage.getItem("editedPost");
-
-        if (savedPost) {
-            const post = JSON.parse(savedPost);
-
-            document.getElementById('edit-title').value = post.title;
-            document.getElementById('edit-body').value = post.body;
-            document.getElementById('edit-image').value = post.image;
-        }
-
-        if (form) {
-            form.addEventListener('submit', (e) => {
-                e.preventDefault();
-
-                const title = document.getElementById('edit-title').value;
-                const body = document.getElementById('edit-body').value;
-                const image = document.getElementById('edit-image').value;
-
-                const postData = {
-                    title,
-                    body,
-                    image
-                };
-
-                localStorage.setItem("editedPost", JSON.stringify(postData));
-
-                alert("Post saved!");
-            });
-        }
-    }
-
-
-    /*home edit*/
-    if (path === '/home') {
-
-        const savedPost = localStorage.getItem("editedPost");
-
-        if (savedPost) {
-            const post = JSON.parse(savedPost);
-
-            const homeContainer = document.querySelector(".home-content");
-
-            const newPost = document.createElement("div");
-            newPost.classList.add("custom-post");
-
-            newPost.innerHTML = `
-            <h2>${post.title}</h2>
-            <p>${post.body}</p>
-            ${post.image ? `<img src="${post.image}" alt="Post image">` : ""}
-
-            <div class="post-actions">
-                <button id="edit-post-btn">Edit</button>
-                <button id="delete-post-btn">Delete</button>
-            </div>
-        `;
-
-            homeContainer.appendChild(newPost);
-
-            // DELETE
-            document.getElementById("delete-post-btn").addEventListener("click", () => {
-                localStorage.removeItem("editedPost");
-                newPost.remove();
-            });
-
-            // EDIT
-            document.getElementById("edit-post-btn").addEventListener("click", () => {
-                window.navigateTo('/edit');
-            });
-        }
-    }
-});
-
-
-
-
-
-
-
-
-
-// GLOBAL
-window.navigateTo = navigateTo;
-window.goBack = goBack;

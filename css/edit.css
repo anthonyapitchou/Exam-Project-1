@@ -101,12 +101,70 @@
     cursor: pointer;
 }
 
+.edit-buttons .submit:hover {
+    background-color: #0088FF;
+    color: white;
+    border: 2px solid #0088FF;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+
+.edit-buttons:hover button:last-child {
+    background-color: #cc4444;
+    color: white;
+    border: 2px solid #cc4444;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
 .edit-buttons button:first-child {
     background: #6EACDA;
     color: white;
 }
 
+
+
 #delete-post {
     background: #cc4444;
     color: white;
+}
+
+@media (max-width: 600px) {
+    .edit-page {
+        padding: 20px;
+        margin: 20px auto;
+    }
+
+    .edit-header img {
+        min-height: 200px;
+
+    }
+
+    .edit-content h1 {
+        font-size: 24px;
+    }
+
+    .edit-content p {
+        font-size: 16px;
+    }
+
+    #edit-post-form input,
+    #edit-post-form textarea {
+        font-size: 16px;
+
+    }
+
+    .edit-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .edit-buttons button {
+        width: 50%;
+    }
+
+    .back-arrow-edit {
+        margin-left: 20px;
+    }
 }

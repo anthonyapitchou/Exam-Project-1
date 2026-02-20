@@ -1,5 +1,5 @@
 export default function edit() {
-    return /*HTML*/ `
+  return /*HTML*/ `
     <div class="edit-container">
     <div class="back-arrow-edit" onclick="window.goBack();" >
     ←
@@ -27,12 +27,12 @@ export default function edit() {
         <label>Content</label>
         <textarea id="edit-body" rows="6" required></textarea>
 
-        <label>Image URL</label>
-        <input type="text" id="edit-image" />
+        <label>Image</label>
+<input type="file" id="edit-image" accept="image/*" />
 
         <nav class="edit-buttons">
-          <button type="submit" onclick="window.navigateTo('/home')">Save Changes</button>
-          <button type="button" id="delete-post">Delete Post</button>
+          <button type="submit" >Save Changes</button>
+          <button type="button" id="delete-post" >Delete Post</button>
         </nav>
 
       </form>
