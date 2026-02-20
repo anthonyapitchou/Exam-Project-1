@@ -1,16 +1,21 @@
-// routes.js
-import home from "../pages/home.js";
-import login from "../pages/login.js";
+// routes.js - Route definitions for Fashion Blog
+
 import about from "../pages/about.js";
 import contact from "../pages/contact.js";
-import edit from "../pages/edit.js";
+// routes.js - Route definitions for Fashion Blog
+
+import about from "../pages/about.js";
+import contact from "../pages/contact.js";
 import ferragamo from "../pages/ferragamo.js";
+import home from "../pages/home.js";
+import login from "../pages/login.js";
 import lubutelvintage from "../pages/lubutelvintage.js";
 import martens from "../pages/martens.js";
 import newlook from "../pages/newlook.js";
 import nike from "../pages/nike.js";
 import register from "../pages/register.js";
 import post from "../pages/post.js";
+import edit from "../pages/edit.js";
 
 const routes = [
     { path: "/", component: home },
@@ -29,4 +34,3 @@ const routes = [
 ];
 
 export default routes;
-
