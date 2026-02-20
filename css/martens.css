@@ -8,7 +8,7 @@
 
 }
 
-.back-arrow-martens {
+.back-arrow {
     width: 36px;
     height: 36px;
     border: 2px solid #0088FF;
@@ -27,7 +27,7 @@
 }
 
 
-.back-arrow-martens:hover {
+.back-arrow:hover {
     background-color: transparent;
     color: #0088FF;
     border: 2px solid #0088FF;
@@ -151,7 +151,7 @@
         gap: 10px;
     }
 
-    .back-arrow-martens {
+    .back-arrow {
         margin-top: 20px;
         padding: 0;
         width: 40px;

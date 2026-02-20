@@ -4,7 +4,7 @@ export default function lubutelVintage() {
 <section class="lubutel-vintage-page">
 
   <div class="login-header">
-<div class="back-arrow-lubutel" onclick="window.goBack();" >
+<div class="back-arrow-lubutel"  >
     ←
   </div>
 

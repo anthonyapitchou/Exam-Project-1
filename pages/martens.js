@@ -4,7 +4,7 @@ export default function martens() {
 <section class="martens-page">
 
   <div class="login-header">
-<div class="back-arrow-martens" onclick="window.goBack();" >
+<div class="back-arrow-martens" >
     ←
   </div>
 

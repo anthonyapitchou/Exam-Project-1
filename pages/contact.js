@@ -5,7 +5,7 @@ export default function contact() {
 
 
   <div class="login-header">
-<div class="back-arrow-contact" onclick="window.goBack();">
+<div class="back-arrow" ">
     ←
   </div>
 

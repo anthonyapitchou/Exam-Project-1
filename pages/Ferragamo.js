@@ -5,7 +5,7 @@ export default function ferragamo() {
 
 
   <div class="login-header">
-<div class="back-arrow-ferragamo" onclick="window.goBack();" >
+<div class="back-arrow-ferragamo"  >
     ←
   </div>
 

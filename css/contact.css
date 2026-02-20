@@ -10,7 +10,7 @@
 
 
 
-.back-arrow-contact {
+.back-arrow {
     width: 20px;
     height: 20px;
     border: 2px solid #FDFBF9;
@@ -224,7 +224,7 @@ input:hover {
         gap: 10px;
     }
 
-    .back-arrow-contact {
+    .back-arrow {
         margin-top: 20px;
         padding: 0;
         width: 40px;

@@ -1,5 +1,4 @@
 // router.js
-
 import routes from './routes.js';
 
 let router = null;
@@ -12,20 +11,37 @@ class Router {
     }
 
     init() {
-        if (!window.location.hash) {
-            window.location.hash = '/home';
-        }
-
+        if (!window.location.hash) window.location.hash = '/home';
         this.loadPage(this.getPath());
+        window.addEventListener('hashchange', () => this.loadPage(this.getPath()));
 
-        window.addEventListener('hashchange', () => {
-            this.loadPage(this.getPath());
+        // --- GESTION GLOBALE DES CLICS (DÉLÉGATION) ---
+        document.addEventListener('click', (e) => {
+
+            // 1. LOG OFF (Déconnexion)
+            if (e.target.id === 'logout-btn') {
+                localStorage.removeItem("accessToken");
+                alert("Logged off!");
+                window.location.hash = "#/home";
+                window.location.reload();
+            }
+
+            // 2. BOUTONS OPEN (Nike, Martens, etc.)
+            if (e.target.classList.contains('btn-open')) {
+                const page = e.target.dataset.page;
+                if (page) this.navigate(`/${page}`);
+            }
+
+            // 3. BOUTONS BACK-ARROW (Correction pour toutes tes classes spécifiques)
+            // Ce sélecteur détecte n'importe quelle classe qui contient "back-arrow"
+            const backBtn = e.target.closest('[class*="back-arrow"]');
+            if (backBtn) {
+                goBack();
+            }
         });
     }
 
-    getPath() {
-        return location.hash.replace('#', '') || '/home';
-    }
+    getPath() { return location.hash.replace('#', '') || '/home'; }
 
     navigate(path) {
         previousPage = this.currentPage;
@@ -33,190 +49,119 @@ class Router {
     }
 
     loadPage(path) {
-        const route =
-            this.routes.find(r => r.path === path) ||
-            this.routes.find(r => r.path === '/');
+        // Sécurité Edit
+        if (path === '/edit' && !localStorage.getItem("accessToken")) {
+            alert("Please login first.");
+            this.navigate('/login');
+            return;
+        }
 
-        if (!route) return;
-
-        const app = document.querySelector('#app');
-        if (!app) return;
-
-        app.innerHTML = route.component();
-        this.currentPage = path;
-
-        this.attachEventListeners(path);
-        setActiveNav();
+        const route = this.routes.find(r => r.path === path) || this.routes.find(r => r.path === '/home');
+        if (route) {
+            const app = document.querySelector('#app');
+            app.innerHTML = route.component();
+            this.currentPage = path;
+            this.attachEventListeners(path);
+            setActiveNav();
+        }
     }
 
     attachEventListeners(path) {
-
-        // LOGIN
-        if (path === '/' || path === '/login') {
-            const loginForm = document.querySelector('#login-form');
-            if (loginForm) {
-                loginForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.navigate('/home');
-                });
-            }
-        }
-
-        // CONTACT
-        if (path === '/contact') {
-            const contactForm = document.querySelector('#contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    if (typeof Swal === 'undefined') return;
-                    Swal.fire({
-                        title: 'Thank you!',
-                        text: 'Your message has been received.',
-                        icon: 'success'
-                    }).then(() => {
-                        goBack();
-                    });
-                });
-            }
-        }
-
-        // HOME
-        // HOME
-        if (path === '/home') {
-            document.querySelectorAll('.btn-open').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    this.navigate(`/${btn.dataset.page}`);
-                });
+        // LOGIN & REGISTER (Redirection Home)
+        if (path === '/login' || path === '/register') {
+            const formId = path === '/login' ? '#login-form' : '#register-form';
+            document.querySelector(formId)?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                localStorage.setItem("accessToken", "demo-token");
+                alert(path === '/login' ? "Welcome back!" : "Account created & logged in!");
+                window.location.hash = "#/home";
+                window.location.reload();
             });
+        }
 
-            // NEWSLETTER
-            const newsletterForm = document.getElementById('newsletter');
-            if (newsletterForm) {
-                newsletterForm.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    const email = document.getElementById('email-input').value;
-                    if (email) {
-                        newsletterForm.reset();
-                    }
-                });
-            }
-
-            // POST
+        // HOME : Affichage du post créé avec photo
+        if (path === '/home') {
             const savedPost = localStorage.getItem("editedPost");
-
             if (savedPost) {
                 const post = JSON.parse(savedPost);
                 const homeContainer = document.querySelector(".home-section");
-
-                if (!homeContainer) return;
-
-                const newPost = document.createElement("div");
-                newPost.classList.add("custom-post");
-
-                newPost.innerHTML = `
-            <div class="custom-post-inner">
-                <h2>${post.title}</h2>
-                <p>${post.body}</p>
-                ${post.image ? `<img src="${post.image}" alt="Post image">` : ""}
-                <div class="custom-post-buttons">
-                    <button id="edit-post-btn">Edit</button>
-                    <button id="delete-post-btn">Delete</button>
-                </div>
-            </div>
-        `;
-
-                homeContainer.appendChild(newPost);
-
-                document.getElementById("delete-post-btn")
-                    .addEventListener("click", () => {
-                        localStorage.removeItem("editedPost");
-                        newPost.remove();
-                    });
-
-                document.getElementById("edit-post-btn")
-                    .addEventListener("click", () => {
-                        this.navigate('/edit');
-                    });
+                if (homeContainer) {
+                    const postDiv = document.createElement("div");
+                    postDiv.className = "custom-post";
+                    postDiv.innerHTML = `
+                        <div style="border:1px solid #ddd; padding:20px; border-radius:10px; margin-top:20px;">
+                            <h2>${post.title}</h2>
+                            <p>${post.body}</p>
+                            ${post.image ? `<img src="${post.image}" style="max-width:100%; margin-top:10px; border-radius:5px;">` : ""}
+                        </div>`;
+                    homeContainer.appendChild(postDiv);
+                }
             }
         }
 
-        // EDIT PAGE
+        // EDIT (Save & Delete)
         if (path === '/edit') {
-
             const form = document.getElementById('edit-post-form');
             const savedPost = localStorage.getItem("editedPost");
 
-            if (savedPost) {
+            if (savedPost && form) {
                 const post = JSON.parse(savedPost);
-                document.getElementById('edit-title').value = post.title || '';
-                document.getElementById('edit-body').value = post.body || '';
+                if (document.getElementById('edit-title')) document.getElementById('edit-title').value = post.title || '';
+                if (document.getElementById('edit-body')) document.getElementById('edit-body').value = post.body || '';
             }
 
-            if (form) {
-                form.addEventListener('submit', (e) => {
-                    e.preventDefault();
+            form?.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const title = document.getElementById('edit-title').value;
+                const body = document.getElementById('edit-body').value;
+                const imageInput = document.getElementById('edit-image');
 
-                    const title = document.getElementById('edit-title').value;
-                    const body = document.getElementById('edit-body').value;
-                    const imageInput = document.getElementById('edit-image');
-                    const file = imageInput.files[0];
-
-                    if (file) {
-                        const reader = new FileReader();
-                        reader.onload = (event) => {
-                            const postData = { title, body, image: event.target.result };
-                            localStorage.setItem("editedPost", JSON.stringify(postData));
-                            this.navigate('/home');
-                        };
-                        reader.readAsDataURL(file);
-                    } else {
-                        const savedPost = localStorage.getItem("editedPost");
-                        const oldImage = savedPost ? JSON.parse(savedPost).image : '';
-                        localStorage.setItem("editedPost", JSON.stringify({ title, body, image: oldImage }));
+                if (imageInput && imageInput.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = (ev) => {
+                        localStorage.setItem("editedPost", JSON.stringify({ title, body, image: ev.target.result }));
+                        alert("Post saved with photo!");
                         this.navigate('/home');
-                    }
-                });
-            }
+                    };
+                    reader.readAsDataURL(imageInput.files[0]);
+                } else {
+                    const oldImg = savedPost ? JSON.parse(savedPost).image : '';
+                    localStorage.setItem("editedPost", JSON.stringify({ title, body, image: oldImg }));
+                    alert("Post updated!");
+                    this.navigate('/home');
+                }
+            });
 
-            const deleteBtn = document.getElementById("delete-post");
-            if (deleteBtn) {
-                deleteBtn.addEventListener("click", () => {
+            document.getElementById("delete-post")?.addEventListener("click", () => {
+                if (confirm("Delete post?")) {
                     localStorage.removeItem("editedPost");
                     this.navigate('/home');
-                });
-            }
+                }
+            });
         }
     }
 }
 
 // EXPORTS
-export function initRouter() {
-    router = new Router(routes);
-    router.init();
-}
-
-export function navigateTo(path) {
-    if (router) router.navigate(path);
-}
+export function initRouter() { router = new Router(routes); router.init(); }
+export function navigateTo(path) { if (router) router.navigate(path); }
 
 export function goBack() {
     if (previousPage) {
-        router.navigate(previousPage);
+        window.location.hash = `#${previousPage}`;
     } else {
-        router.navigate('/home');
+        window.location.hash = "#/home";
     }
 }
 
 export function setActiveNav() {
     const links = document.querySelectorAll('.nav a');
     const currentPath = location.hash.replace('#', '') || '/home';
-
     links.forEach(link => {
-        const route = link.dataset.route;
-        if (route === currentPath) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
+        link.classList.toggle('active', link.dataset.route === currentPath);
     });
 }
+
+// Rendre accessible au onclick du HTML
+window.goBack = goBack;
+

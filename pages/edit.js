@@ -1,7 +1,7 @@
 export default function edit() {
   return /*HTML*/ `
     <div class="edit-container">
-    <div class="back-arrow-edit" onclick="window.goBack();" >
+    <div class="back-arrow-edit"  >
     ←
   </div>
 

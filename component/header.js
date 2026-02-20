@@ -1,60 +1,47 @@
+// component/header.js
 export default function header() {
+    const isLoggedIn = !!localStorage.getItem("accessToken");
 
-    return /*HTML*/ `
+    return `
 <header class="header">
-<div class="header-container">
+    <div class="header-container">
+        <!-- Burger menu mobile -->
+        <div class="burger" id="burger">
+            <span></span><span></span><span></span>
+        </div>
 
+        <!-- Logo -->
+        <nav class="logo">
+            <a href="#/home" class="nav-logo">StudioHybrid</a>
+        </nav>
 
-<div class="burger" id="burger">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-<div class="mobile-overlay" id="mobileOverlay"></div>
+        <!-- Barre de recherche -->
+        <div class="search-bar">
+            <input type="text" id="searchInput" placeholder="Search blog posts...">
+        </div>
 
+        <!-- Navigation principale -->
+        <nav class="nav">
+            <a href="#/home" data-route="/home">Home</a>
+            <a href="#/about" data-route="/about">About</a>
+            <a href="#/contact" data-route="/contact">Contact</a>
+            
+            <!-- Nike remplacé par New Look (et Edit plus bas) -->
+            <a href="#/newlook" data-route="/newlook">New Look</a>
 
-<nav class="logo">
-    <a href="javascript:void(0)" class="nav-logo" onclick="window.navigateTo('/home')">StudioHybrid</a>
-</nav>
+            <!-- Gestion dynamique de l'utilisateur -->
+            ${!isLoggedIn ? `
+                <a href="#/login" data-route="/login">Login</a>
+                <a href="#/register" data-route="/register">Register</a>
+            ` : `
+                <!-- EDIT est ici maintenant, visible uniquement pour l'Owner -->
+                <a href="#/edit" data-route="/edit">Edit Post</a>
+                <button id="logout-btn" class="btn-logout">Log off</button>
 
-<div class="search-bar">
-    <input type="text" id="searchInput" placeholder="Search products">
+            `}
+        </nav>
     </div>
-
-
-
-<nav class="nav">
-  <a href="javascript:void(0)" data-route="/about" onclick="window.navigateTo('/about')">About</a>
-  <a href="javascript:void(0)" data-route="/contact" onclick="window.navigateTo('/contact')">Contact</a>
-  <a href="javascript:void(0)" data-route="/newlook" onclick="window.navigateTo('/newlook')">New Look</a>
-  <a href="javascript:void(0)" data-route="/edit" onclick="window.navigateTo('/edit')">Edit</a>
-  <a href="javascript:void(0)" data-route="/login" onclick="window.navigateTo('/login')">Login</a>
-</nav>
-
-
-
-
-
-
-
-</div>
 </header>
     `;
-
-}
-
-export function setActiveNav() {
-    const links = document.querySelectorAll('.nav a');
-    const currentPath = window.location.pathname;
-
-    links.forEach(link => {
-        const route = link.dataset.route;
-
-        if (route === currentPath) {
-            link.classList.add('active');
-        } else {
-            link.classList.remove('active');
-        }
-    });
 }
 
