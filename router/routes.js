@@ -2,10 +2,10 @@
 
 import about from "../pages/about.js";
 import contact from "../pages/contact.js";
-import Ferragamo from "../pages/Ferragamo.js";
+import ferragamo from "../pages/Ferragamo.js";
 import home from "../pages/home.js";
 import login from "../pages/login.js";
-import Lubutelvintage from "../pages/Lubutelvintage.js";
+import lubutelvintage from "../pages/Lubutelvintage.js";
 import martens from "../pages/martens.js";
 import newlook from "../pages/newlook.js";
 import nike from "../pages/nike.js";
