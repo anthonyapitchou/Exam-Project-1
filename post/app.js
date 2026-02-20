@@ -1,4 +1,4 @@
-import { initRouter, navigateTo } from "../../router/router.js";
+import { initRouter, navigateTo } from "../router/router.js";
 import header from "../component/header.js";
 import footer from "../component/footer.js";
 import home from "../pages/home.js";
